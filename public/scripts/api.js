@@ -30,4 +30,4 @@ function apiCall(method,url,data){
 if(document.getElementById("userName")){
     document.getElementById("userName").innerHTML = sessionStorage.getItem("OOSD_session");
 }
-const domain = `oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com`; //to reduce redundancy
+const domain = `http://oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com/`; //to reduce redundancy
