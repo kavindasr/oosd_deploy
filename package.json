@@ -1,0 +1,30 @@
+{
+  "name": "oosd_deploy",
+  "version": "1.0.0",
+  "description": "First deploy test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kavindasr/oosd_deploy.git"
+  },
+  "author": "KSR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kavindasr/oosd_deploy/issues"
+  },
+  "homepage": "https://github.com/kavindasr/oosd_deploy#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookies": "^0.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "uniqid": "^5.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

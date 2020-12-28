@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/styles/clerk/clerk_out.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/styles/load.css" />
+    <title>Clerk</title>
+  </head>
+  <body>
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Garbage Out</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/clerk/clerk_gin">Garbage In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/clerk/clerk_comp">Compost Production</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-circle"></i>
+              <span id="userName">&nbsp UserName</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+              <a class="dropdown-item" href="/changePassword"><i class="fa fa-cog"></i>&nbsp Change password</a>
+              <a class="dropdown-item" href="/logOut"><i class="fa fa-sign-out"></i>&nbsp Sign out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--/.Navbar -->
+
+    <!--Loading-->
+    <div id="loader" class="text-center">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div class="mt-5 container">
+      <div class="row">
+        <div class="col-sm-7 rounded-left" style="background-color: #61656d;">
+          <!-- form -->
+          <form class="mb-4" style="font-size: large;">
+
+            <div class="mx-auto" style="width:180px ">
+              <p class="font-weight-bolder" style="font-family: sans-serif;"><h3>Garbage Out</h3></p>
+            </div>
+
+            <div id="gtype" class="form-group">
+                <label for="sel1">Garbage Type</label>
+                <select class="form-control" id="selbox1" onchange="getPrice('gdetail')">
+                    <option>----Select TYPE----</option>
+                </select>
+            </div>       
+             
+            <div id = "price" class="form-group">
+                <label for="pricekg">Price per 1kg(Rs.)</label>
+                <label class="form-control" id="priceperkg">
+            </div>
+
+            <div id = "gweight" class="form-group">
+                <label for="lweight">Weight(kg)</label>
+                <input type="number" min="0" oninput="this.value = Math.abs(this.value)" class="form-control" id="weight" placeholder="kg">
+            </div>
+        
+            
+            <div id="bill" class="input-group mb-3">
+                <label for="lamount">Bill Amount(Rs.)</label>
+                <div id="grp" class="input-group mb-3">
+                    <input type="number" class="form-control" id="amount" placeholder="Rs.">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="button" onclick="calculate('priceperkg','weight','amount')">SHOW</button> 
+                    </div>
+                </div>
+            </div> 
+             <!-- Button trigger modal -->
+            <div id="div7" >
+                <button id="btn" class="btn btn-block" style="background-color:#68e1fd "type="button" data-toggle="modal" data-target="#myModal" data-backdrop="static" onclick="getData()">SAVE</button>
+            </div>
+        </form>
+        <!-- form -->
+        </div>
+
+        <div id="imgdiv" class="col-sm-5 rounded-right" style="background: linear-gradient(to bottom, #61656d 0%, #0a0c17 100%);padding-top: 100px;">
+          <div class="img">
+            <img class="my-auto d-block img-fluid" src="/public/images/man.svg">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" id="modelbody" style="background: linear-gradient(to bottom, #d4d4e0 0%, #605e63 100%); font-size: large; color: black;">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <!-- <i class="fas fa-recycle"></i> -->
+              <h4 style="line-height: 1.9; padding-left: 12px;" class="modal-title"><b>INVOICE</b></h4>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6 ml-auto">Disposal Site,
+                    Sundarapola, Yanthampalawa.
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="close" id="btn-close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container-fluid">
+                
+                <div class="row">
+                  <div class="col-sm-6">Invoice No    :</div>
+                  <div class="col-sm-6" id = "invoice"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">Date    :</div>
+                  <div class="col-sm-6" id = "date"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">Time    :</div>
+                  <div class="col-sm-6" id = "time"></div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-sm-6">Garbage Type  :</div>
+                  <div class="col-sm-6" id = "gartype"></div>
+                </div>
+              
+                <div class="row">
+                  <div class="col-sm-6">Weight (kg)    :</div>
+                  <div class="col-sm-6" id = "wght"></div>
+                </div>
+
+                <div class="row" id ="a">
+                  <div class="col-sm-6">Amount    :</div>
+                  <div class="col-sm-6" id = "amnt"></div>
+                </div>
+            </div>
+          </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" id="footer">
+              <button id="btnf" type="button" class="btn btn-dark" data-dismiss="modal" onclick="submitGout()">Submit & Print</button>
+              <button id="btnf" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+      </div>
+  </div>
+
+    <script src="/public/scripts/api.js"></script>
+    <script src="/public/scripts/clerk/common.js"></script>
+    <script src="/public/scripts/clerk/clerk_out.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/c8e2705c9c.js" crossorigin="anonymous"></script> -->
+  </body>
+</html>

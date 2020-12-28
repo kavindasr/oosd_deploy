@@ -1,0 +1,64 @@
+body{
+    background-color: #1F618D;
+    color: aliceblue;
+  }
+
+  /* @media screen and (max-width: 1200px){
+    .img{
+        width: 300px;
+    }
+  } */
+  
+  /* @media screen and (max-width: 1000px){
+    .card text-white mx-auto{
+      width: 300px;
+    }
+  
+    .img img{
+      width: 250px;
+    }
+  }
+  
+  @media screen and (max-width: 900px){
+    .container{
+      grid-template-columns: 1fr;
+    }
+  
+    .img{
+      display: none;
+    }
+  
+    .wave{
+      display: none;
+    }
+  
+    .card text-white mx-auto{
+      justify-content: center;
+    }
+  }
+  */
+  @media screen and (max-width: 600px){
+    .img{
+      display: none;
+    }
+    #imgdiv{
+      display: none;
+    }
+  }
+
+  /* 
+  for the recycle symbol in the invoice. removed
+  .fa, .fas {
+    font-weight: 1000;
+    font-size: 40px;
+    width: 50px;
+  } */
+  .row{
+    flex-wrap: nowrap;
+  }
+  .modal-header{
+    border-bottom: 1px solid #202427;
+  }
+  .modal-footer{
+    border-top: 1px solid #202427;
+  }
