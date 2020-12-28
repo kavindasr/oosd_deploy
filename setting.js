@@ -21,5 +21,5 @@ exports.dbConfig = ksr;
 exports.webSettings = {
     webport: process.env.port || 8000,
     protocol: "http",
-    host: "192.168.1.8",
+    host: "http://oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com/",
 };
