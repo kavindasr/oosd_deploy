@@ -99,7 +99,7 @@ const tokenedAccess = async (sMethod)=>{
 // ------------------------------------------------------------------------------------
 
 function redirect(method,path){
-    method.res.writeHead(302,{'Content-Type':'text/plain','Location':webSettings.protocol+"://"+webSettings.host+":"+webSettings.webport+path});
+    method.res.writeHead(302,{'Content-Type':'text/plain','Location':webSettings.protocol+"://"+webSettings.host+path});
 }
 
 module.exports = {
