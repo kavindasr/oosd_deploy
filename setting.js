@@ -19,7 +19,7 @@ const ksr = {
 exports.dbConfig = ksr;
 
 exports.webSettings = {
-    webport: process.env.PORT || 8000,
+    webport: process.env.port || 8000,
     protocol: "http",
     host: "192.168.1.8",
 };
