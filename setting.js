@@ -2,10 +2,10 @@
 // change credentials before run the server
 const ksr = {
     connectionLimit: 10,
-    user: "b166896bfcc309",
-    password: "22151584",
-    host: "us-cdbr-east-02.cleardb.com",
-    database: "heroku_48834df21d1df75",
+    user: "ksr",
+    password: "ksr199841",
+    host: "oosd11.c90hbp9gmghy.us-east-2.rds.amazonaws.com",
+    database: "oosdDB",
 };
 // const ksr = {
 //     connectionLimit: 10,
