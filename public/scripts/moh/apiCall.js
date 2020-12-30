@@ -24,4 +24,4 @@ function apiCall(method,url,data){
     });
 }
 
-const domain = `http://localhost:8000`; //to reduce redundancy
+const domain = `http://oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com`; //to reduce redundancy
