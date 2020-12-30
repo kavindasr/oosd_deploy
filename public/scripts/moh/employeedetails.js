@@ -4,7 +4,7 @@ async function checkEmployee(){
   const empId = document.getElementById("idnum").value;
     var validate;
     try{
-        validate = await apiCall("HEAD",`http://localhost:8000/api/employee/all?empid=${empId}`);
+        validate = await apiCall("HEAD",`${domain}/api/employee/all?empid=${empId}`);
     }
     catch(e){
         validate = e ;
