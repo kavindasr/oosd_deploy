@@ -32,7 +32,8 @@
                         <input id="salid" type="number" pattern="[0-9]+" title="number only" name="Weight3" placeholder="Salary-ID" />
                       </div>
                       <div id="togglepart4">
-                        <input id="dob" type="text" name="Bill4" placeholder="Year/Month/Date" />
+                        <input id="dob" type="text" onkeypress="return /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/
+                        i.test(event.key)" name="Bill4" placeholder="Year/Month/Date" />
                       </div>
                       <div id="togglepart5">
                         <div class="box">
