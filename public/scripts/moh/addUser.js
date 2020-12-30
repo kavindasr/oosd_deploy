@@ -1,6 +1,6 @@
 async function showUsers(){
     try{
-        const url = "http://localhost:8000/api/uTable/uName&uType";
+        const url = `${domain}/api/uTable/uName&uType`;
         const cUsers = await apiCall("GET",url);
         
         cUsers.forEach(v=>{

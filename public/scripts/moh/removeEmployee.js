@@ -2,11 +2,10 @@ async function removeemp(){
     
     var empid = document.getElementById("removeid").value;
 
-    const url = "http://localhost:8000/api/employee?empid=" + empid;
-    const url2 = "http://localhost:8000/api/employee/all?empid=" + empid;
+    const url = `${domain}/api/employee?empid=${empid}`;
+    const url2 = `${domain}/api/employee/all?empid=${empid}`;
 
     const data = await apiCall("GET",url2);
-    console.log(data);
     if (data.length!=0){
         try{
             const data1 = await apiCall("DELETE",url);

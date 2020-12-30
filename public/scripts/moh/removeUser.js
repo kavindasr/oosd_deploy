@@ -1,7 +1,7 @@
 async function removeuserdb() {
     const uName = document.getElementById("USERremove").value;
-    var url = "http://localhost:8000/api/user?userName=" + uName ;
-    var url2 = "http://localhost:8000/api/user/all?userName=" + uName ;
+    var url = `${domain}/api/user?userName=${uName}` ;
+    var url2 = `${domain}/api/user/all?userName=${uName}` ;
 
 
     if (uName!=""){
@@ -31,7 +31,7 @@ async function removeuserdb() {
 async function showUsers(){
 
     try{
-        const url = "http://localhost:8000/api/uTable/uName&uType";
+        const url = `${domain}/api/uTable/uName&uType`;
         const cUsers = await apiCall("GET",url);
         
         cUsers.forEach(v=>{
