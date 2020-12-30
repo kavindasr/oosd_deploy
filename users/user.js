@@ -120,12 +120,12 @@ class MOH extends User{
 
         this.viewAccess = {
             "depot":false,
-            "MOH"  :true,
+            "moh"  :true,
             "clerk":false,
             "mayor":false,
             "changePassword":true
         }
-        this.mainPage = '/MOH/homenew';
+        this.mainPage = '/moh/homenew';
     }
 
     
