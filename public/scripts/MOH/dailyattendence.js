@@ -1,62 +1,53 @@
 async function table1(empdtl){
   arr=[];
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var divisions=JSON.parse(this.responseText);
-      for(i=0;i<empdtl[0].length;i++){
-        if(empdtl[0][i]!=null){
-          arr[i]= [divisions[i].division_no ,divisions[i].division_name ,empdtl[0][i] , empdtl[0][i].length];
-        }
+  try{
+    divisions = await apiCall("GET", `${domain}/api/division/divno&divName`);
+    for(i=0;i<empdtl[0].length;i++){
+      if(empdtl[0][i]!=null){
+        arr[i]= [divisions[i].division_no ,divisions[i].division_name ,empdtl[0][i] , empdtl[0][i].length];
       }
-      drawchart1(arr)
-    }
-  };
-  xhttp.open("GET", `http://192.168.1.8:8000/api/division/divno&divName`, true);
-  xhttp.send();
+    } 
+    drawchart1(arr)
+  }
+  catch(e){
+      alert("Reload and try again!");
+  }
 }
 
 async function table2(empdtl){
   arrV=[];
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var divisions=JSON.parse(this.responseText);
-      for(i=0;i<empdtl[1].length;i++){
-        if(empdtl[1][i]!=null){
-          arrV[i]= [divisions[i].division_no ,divisions[i].division_name ,empdtl[1][i].vehicle ,empdtl[1][i].driver,empdtl[1][i].employees,  empdtl[1][i].employees.length];
-        }
+  try{
+    divisions = await apiCall("GET", `${domain}/api/division/divno&divName`);
+    for(i=0;i<empdtl[1].length;i++){
+      if(empdtl[1][i]!=null){
+        arrV[i]= [divisions[i].division_no ,divisions[i].division_name ,empdtl[1][i].vehicle ,empdtl[1][i].driver,empdtl[1][i].employees,  empdtl[1][i].employees.length];
       }
-      drawchart2(arrV)
     }
-  };
-  xhttp.open("GET", `http://192.168.1.8:8000/api/division/divno&divName`, true);
-  xhttp.send();
+    drawchart2(arrV)
+  }
+  catch(e){
+      alert("Reload and try again!");
+  }
 }
 
 
-function viewattendence() {
-  var xhttp = new XMLHttpRequest();
-  var url ="http://192.168.1.8:8000/report/dAttendence?date='" + document.getElementById("inpdate").value+"'";
-  console.log(url);
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var empdetails = JSON.parse(this.responseText);
-      console.log(empdetails);
-      if (empdetails== "error, cant take action"){
-        alert("No data in the database");
-        document.getElementById("wrapper1").innerHTML = ""
-        document.getElementById("wrapper2").innerHTML = ""
-      }else{
-        table1(empdetails);
-        table2(empdetails);
-        console.log((empdetails));
-      } 
+async function viewattendence() {
+  console.log(document.getElementById("inpdate").value);
+  try{
+    empdetails = await apiCall("GET", `${domain}/report/dAttendence?date='${document.getElementById("inpdate").value}'`);
+    if (empdetails== "error, cant take action"){
+      alert("No data in the database");
+      document.getElementById("wrapper1").innerHTML = ""
+      document.getElementById("wrapper2").innerHTML = ""
+    }else{
+      table1(empdetails);
+      table2(empdetails);
     }
-  };
 
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  }
+  catch(e){
+    alert("No data in the database");
+  } 
 }
 
 function drawchart1(arr){
