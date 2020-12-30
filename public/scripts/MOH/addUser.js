@@ -1,6 +1,6 @@
 async function showUsers(){
     try{
-        const url = "http://192.168.1.8:8000/api/uTable/uName&uType";
+        const url = "http://localhost:8000/api/uTable/uName&uType";
         const cUsers = await apiCall("GET",url);
         
         cUsers.forEach(v=>{
@@ -32,18 +32,14 @@ async function addusernew() {
 
     if (emp_Name!="" && pswd1!=""){
         if (pswd1==pswd2){
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.status == 406) {
-                    alert("Username already exist")
-                    window.location.reload();
-                }else{
-                    alert("User Added Successfully..");
-                    window.location.reload();
-                }
-            };
-            xhttp.open("POST", "http://192.168.1.8:8000/signup", true);
-            xhttp.send(JSON.stringify(userObj));
+            try{
+                await await apiCall("POST",`${domain}/signup`,userObj);
+                alert("User Added Successfully..");
+                window.location.reload();
+            }
+            catch(e){
+                alert("Try again")
+            } 
         }else{
             alert("Passwords doesn't match!!")
         }

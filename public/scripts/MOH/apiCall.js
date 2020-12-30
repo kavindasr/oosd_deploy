@@ -24,4 +24,4 @@ function apiCall(method,url,data){
     });
 }
 
-const domain = `http://192.168.1.8:8000`; //to reduce redundancy
+const domain = `http://localhost:8000`; //to reduce redundancy

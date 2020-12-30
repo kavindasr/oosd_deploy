@@ -1,7 +1,7 @@
 async function removeuserdb() {
     const uName = document.getElementById("USERremove").value;
-    var url = "http://192.168.1.8:8000/api/user?userName=" + uName ;
-    var url2 = "http://192.168.1.8:8000/api/user/all?userName=" + uName ;
+    var url = "http://localhost:8000/api/user?userName=" + uName ;
+    var url2 = "http://localhost:8000/api/user/all?userName=" + uName ;
 
 
     if (uName!=""){
