@@ -120,7 +120,7 @@ class MOH extends User{
 
         this.viewAccess = {
             "depot":false,
-            "moh"  :true,
+            "MOH"  :true,
             "clerk":false,
             "mayor":false,
             "changePassword":true
