@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+        <link rel="stylesheet" href="/public/styles/depot/main.css" />
+        <link rel="stylesheet" href="/public/styles/moh/home.css" />
+        <link rel="stylesheet" href="/public/styles/load.css" />
+    </head>
+    <body>
+      <div id="loader" class="text-center">
+        <div class="spinner-border text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div id="addUserfile">
+        <div class="row row-content bodycontent" id="addUserfile">
+          <div class="col-12 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <center>
+                  <h3 style="color: rgb(255, 255, 255); display: inline-flex;">Add User</h3>
+                </center>
+                <form action="" target="_self">
+                  <br />
+                  <div id="togglepart">
+                    <label for="mass" style="font-family: arial; color: rgb(255, 255, 255);">Username</label>
+                    <input id="addusername" type="text" onkeypress="return /[a-z\. -]/i.test(event.key)" name="username" placeholder="Username" />
+                  </div>
+                  <div id="togglepart">
+                    <label for="mass" style="font-family: arial; color: rgb(255, 255, 255);">User Type</label>
+                    <div id="togglepartadduser">
+                      <div class="box">
+                        <select id="adduserselection">
+                          <option value="clerk">Clerk</option>
+                          <option value="depot">Depot</option>
+                          <option value="moh">MOH</option>
+                          <option value="mayor">Mayor</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="togglepart">
+                    <label for="mass" style="font-family: arial; color: rgb(255, 255, 255);"> Password</label>
+                    <input id="adduserpassword12"  class="input-div pass" type="password" name="password12" placeholder="180044" />
+                  </div>
+                  <div id="togglepart">
+                    <label for="mass" style="font-family: arial; color: rgb(255, 255, 255);"> Enter Password Again</label>
+                    <input id="adduserpassword34"  class="input-div pass" type="password" name="password34" placeholder="180044" />
+                  </div>
+                  <div id="togglepart">
+                    Show Password <input type="checkbox" calss="input" onclick="showPass()">
+                  </div>
+                  <div id="sub">
+                    <button id="btn" type="button" onclick="addusernew()">
+                      ADD USER
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="sub" style="padding: 30px;">
+        <button id="btn" type="button" onclick="showUsers()">
+          Show Current Users
+        </button>
+      </div>
+                
+      <div class="card-body" style="color: rgb(0, 0, 0);">
+        <ul class="list-group" id="cUser">
+        </ul>
+      </div>
+
+      <script src="/public/scripts/moh/apiCall.js"></script>
+      <script src="/public/scripts/moh/addUser.js"></script>
+    </body>
+</html>
