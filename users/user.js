@@ -125,7 +125,7 @@ class MOH extends User{
             "mayor":false,
             "changePassword":true
         }
-        this.mainPage = '/moh/homenew';
+        this.mainPage = '/MOH/homenew';
     }
 
     
