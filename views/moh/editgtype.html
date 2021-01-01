@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- <link rel="stylesheet" href="/public/styles/depot/main.css" /> -->
+        <link rel="stylesheet" href="/public/styles/MOH/background.css" />
+        <link rel="stylesheet" href="/public/styles/load.css" />
+    </head>
+
+    <body>
+      <div id="loader" class="text-center">
+        <div class="spinner-border text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      
+
+      <div class="container">
+        <h4>Garbage In Types</h4>                                                                                   
+        
+        <div class="table-responsive">
+          <table class="table table-primary table-sm table-bordered">
+            <thead class="thead-dark"> 
+              <tr>
+                <th>Index</th>
+                <th>Garbage Type</th>
+                <th>Unit Price</th>
+              </tr>
+            </thead>
+            <tbody id = "gintype">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="container" style="text-align: -webkit-center;">
+      <div class="input-group mb-3">
+        <input id = "type1" type="text" class="form-control" placeholder="Garbage Type">
+        <input id="price1" type="number" class="form-control" placeholder="Unit Price">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit" onclick="submitData('type1','price1','gintype')">ADD</button>  
+         </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input id="index1" type="number" class="form-control" placeholder="Index">
+        <input id="upprice1" type="number" class="form-control" placeholder="Unit Price">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit" onclick="updateData('index1','upprice1','gintype')">UPDATE</button>  
+         </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input id="delindex" type="number" class="form-control" placeholder="Index">
+        <div class="input-group-append">
+          <button class="btn btn-danger" type="submit" onclick="deleteData('delindex','gintype')">DELETE</button>  
+         </div>
+      </div>
+      </div>
+
+
+      <br>
+    <div class="container">
+        <h4>Garbage Selling Types</h4>                                                                           
+        
+        <div class="table-responsive">
+          <table class="table table-success table-sm table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Index</th>
+                <th>Garbage Type</th>
+                <th>Unit Price</th>
+              </tr>
+            </thead>
+            <tbody id="gdetail">
+            </tbody>
+          </table>
+        </div>
+      </div>
+   
+      <div class="container" style="text-align: -webkit-center;">
+        <div class="input-group mb-3">
+          <input id="type2" type="text" class="form-control" placeholder="Garbage Type">
+          <input id="price2" type="number" class="form-control" placeholder="Unit Price">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" onclick="submitData('type2','price2','gdetail')">ADD</button>  
+           </div>
+        </div>
+  
+        <div class="input-group mb-3">
+          <input id="index2" type="number" class="form-control" placeholder="Index">
+          <input id="upprice2" type="number" class="form-control" placeholder="Unit Price">
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit" onclick="updateData('index2','upprice2','gdetail')">UPDATE</button>  
+           </div>
+        </div>
+  
+        <div class="input-group mb-3">
+          <input id="delindex2" type="number" class="form-control" placeholder="Index">
+          <div class="input-group-append">
+            <button class="btn btn-danger" type="submit" onclick="deleteData('delindex2','gdetail')">DELETE</button>  
+           </div>
+        </div>
+        </div>
+
+      <script src="/public/scripts/MOH/apicall.js"></script>
+      <script src="/public/scripts/MOH/editgtype.js"></script>
+    </body>
+</html>

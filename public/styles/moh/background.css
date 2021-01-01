@@ -1,0 +1,11 @@
+body{
+    background-color: #1F618D;
+    color: aliceblue;
+  }
+
+.btn{
+    width: 85px;
+}
+.input-group{
+    max-width: 400px;
+}
