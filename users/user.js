@@ -106,7 +106,7 @@ class MOH extends User{
             gunbill              : {GET:true,POST:true,PUT:false,DELETE:false,HEAD:false},
             gout                 : {GET:true,POST:true,PUT:false,DELETE:false,HEAD:false},
             user                 : {GET:true,DELETE:true},
-            gintype              : {GET:true,POST:true,PUT:true,DELETE:true,HEAD:false},
+            gintype              : {GET:true,POST:true,PUT:true,DELETE:true,HEAD:true},
             vehicleout           : {GET:true,POST:true,PUT:false,DELETE:false},
             signup               : {POST:true},
             changePass           : {PUT:true},
