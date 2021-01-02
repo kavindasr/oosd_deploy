@@ -41,7 +41,9 @@
                     <p id="empID"></p>
                     <p id="empSalID"></p>
                   </div>
-                  <button id="wrkdays" type="button" onclick="workingdays()">View number of working days</button>
+                
+                  <button id="wrkdays" type="button" onclick="removeemp()" style="margin-bottom: 20px;">Remove Employee</button>
+                  <button id="wrkdays" type="button" onclick="workingdays()" style="margin-bottom: 20px;">View number of working days</button>
                   <p id="numdays"></p>
                 </div>
                 <div id="detail" style="display: none;">
@@ -53,6 +55,7 @@
         </div>
       </div>
       <script src="/public/scripts/moh/apiCall.js"></script>
+      <script src="/public/scripts/moh/removeEmployee.js"></script>
       <script src="/public/scripts/moh/employeedetails.js"></script>
     </body>
 </html>
