@@ -137,7 +137,12 @@ async function todayVehicleDistribution(tdate){
 }
 
 async function getArray(qType,sDate,eDate){
-     
+    const EDate = eDate.slice(1,-1);
+    const year = EDate.split('-')[0];
+    const month = EDate.split('-')[1];
+    const day = new Date(year,month,0).getDate();
+
+    eDate = `'${year}-${month}-${day}'`;
     var arr = [];
     var arr0 = new Array(parseInt(qType.finLength)).fill(0);
     arr.push(arr0);
