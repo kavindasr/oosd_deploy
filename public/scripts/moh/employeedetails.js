@@ -1,5 +1,5 @@
 var d = new Date();
-
+document.getElementById('calendar').style.visibility = 'hidden';
 async function checkEmployee(){
   const empId = document.getElementById("idnum").value;
     var validate;
@@ -29,12 +29,16 @@ async function viewEmployee() {
 }
 
 async function workingdays() {
+  document.getElementById('calendar').style.visibility = 'visible';
+  const year_month =document.getElementById('monthselect1').value
   try{
-    empdetails = await apiCall("GET", `${domain}/report/absentee?empID=${document.getElementById("idnum").value}&month=${(d.getMonth()+1)}`);
-    document.getElementById("numdays").innerHTML = "Has worked " + empdetails + " days in this month";
+    empdetails = await apiCall("GET", `${domain}/report/absentee?empID=${document.getElementById("idnum").value}&date=${year_month}`);
+
+    renderCalendar(empdetails,year_month);
+    document.getElementById("numdays").innerHTML = "Has worked " + empdetails.count + " days in this month";
   }
   catch(e){
-    alert("Reload and try again!");
+    alert(e);
   } 
 }
 

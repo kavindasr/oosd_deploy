@@ -18,12 +18,16 @@ class reportMethod{
     }
     async absenteeCal(){
         const empID = this.method.searchURL("empID");
-        const givenMonth = this.method.searchURL("month");
-        const currMonth = new Date().getMonth() + 1 ;
-        const currYear = new Date().getFullYear();
-        const data = (await executeSQL(`SELECT * FROM daily_attendance WHERE month(tdate) = ${givenMonth} and YEAR(tdate) = ${currYear} and employee_id = ${empID}`)).length ;
-
-        return (data);
+        const givenDate = this.method.searchURL("date");
+        try{
+            const dataList = await executeSQL(`SELECT tdate FROM daily_attendance WHERE employee_id=${empID} AND tdate LIKE '${givenDate}%';`);
+            const data = {count:dataList.length,dateList:dataList};
+            return (data);
+        }
+        catch(e){
+            return (null);
+        }
+        
     }
     async getdRange(reqType){
         const sDate = this.method.searchURL("sDate");

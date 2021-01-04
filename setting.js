@@ -6,6 +6,7 @@ const ksr = {
     password: "ksr199841",
     host: "oosd11.c90hbp9gmghy.us-east-2.rds.amazonaws.com",
     database: "oosdDB",
+    timezone: 'Z'
 };
 // const ksr = {
 //     connectionLimit: 10,
@@ -21,5 +22,5 @@ exports.dbConfig = ksr;
 exports.webSettings = {
     webport: process.env.port || 8000,
     protocol: "http",
-    host: "oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com",
+    host: "oosdeb-env.eba-44zh8xut.us-east-2.elasticbeanstalk.com"
 };

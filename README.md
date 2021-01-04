@@ -200,6 +200,7 @@ Get data from two tables use join
 ------------------------------------------------------------------------------------------------
 Reports- 
     1. Get vehicle distribution by date - http://localhost:8000/report/vehicleDistribution?date=2020-9-14
+    2. Get attendace by month - http://localhost:8000/report/absentee?empID=181&date=2020-11
 ------------------------------------------------------------------------------------------------
 Can use these end points to interact with the user_table
 
