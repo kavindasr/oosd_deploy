@@ -23,7 +23,6 @@ async function addusernew() {
     var pswd1 = (document.getElementById("adduserpassword12").value);
     var pswd2 = (document.getElementById("adduserpassword34").value);
     
-    console.log(emp_Name,emp_type,pswd1,pswd2);
     var userObj = {
         password: pswd1,
         userName: emp_Name,
